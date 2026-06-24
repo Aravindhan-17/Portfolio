@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -41,9 +42,13 @@ export function HeroSection() {
         <div className="flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8 mb-7 md:mb-8 w-full">
           {/* Profile Avatar */}
           <div className="relative h-24 w-24 md:h-[130px] md:w-[130px] rounded-full border-[3px] border-background overflow-hidden bg-muted shadow-xl flex-shrink-0">
-            <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 text-5xl">
-              👨🏻‍💻
-            </div>
+            <Image
+              src="/images/avatar.webp"
+              alt="Aravindhan Profile"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Headings */}

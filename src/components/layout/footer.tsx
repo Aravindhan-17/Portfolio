@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { Mail } from "lucide-react";
 
 export function Footer() {
@@ -11,33 +11,30 @@ export function Footer() {
         
         {/* Left Side */}
         <div className="flex flex-col gap-1.5">
-          <h3 className="text-[17px] font-bold text-foreground">Aravindhan</h3>
-          <p className="text-[14px] font-medium text-foreground/70 dark:text-muted-foreground flex items-center gap-2">
+          <h3 className="text-lg font-bold text-foreground">Aravindhan</h3>
+          <p className="text-sm font-medium text-foreground/70 dark:text-muted-foreground flex items-center gap-2">
             🇮🇳 Based in India
           </p>
-          <p className="text-[13px] text-foreground/60 dark:text-muted-foreground mt-4 md:mt-6">
+          <p className="text-xs text-foreground/60 dark:text-white mt-4 md:mt-6">
             © {new Date().getFullYear()} Aravindhan. All rights reserved.
           </p>
         </div>
 
         {/* Right Side */}
         <div className="flex flex-col items-start md:items-end gap-4 md:gap-3">
-          <p className="text-[13.5px] text-foreground/60 dark:text-muted-foreground text-left md:text-right max-w-[300px] leading-relaxed">
-            Website Designed in Figma. Built with Next.js, Typescript and Tailwind CSS.
+          <p className="text-sm text-foreground/60 dark:text-muted-foreground text-left md:text-right max-w-[300px] leading-relaxed">
+            Built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui.
           </p>
           
           <div className="flex items-center gap-4 mt-2">
             <Link href="#" className="text-foreground/60 hover:text-foreground transition-colors">
-              <FaGithub className="w-[18px] h-[18px]" />
+              <FaGithub className="w-5 h-5" />
             </Link>
             <Link href="#" className="text-foreground/60 hover:text-foreground transition-colors">
-              <Mail className="w-[18px] h-[18px]" />
+              <Mail className="w-5 h-5" />
             </Link>
             <Link href="#" className="text-foreground/60 hover:text-foreground transition-colors">
-              <FaLinkedin className="w-[18px] h-[18px]" />
-            </Link>
-            <Link href="#" className="text-foreground/60 hover:text-foreground transition-colors">
-              <FaTwitter className="w-[18px] h-[18px]" />
+              <FaLinkedin className="w-5 h-5" />
             </Link>
           </div>
         </div>

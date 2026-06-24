@@ -65,7 +65,7 @@ export function Navbar() {
               key={link.label}
               variant="ghost"
               onClick={() => handleNav(link.href)}
-              className="text-foreground hover:text-foreground font-medium rounded-full px-6 py-2"
+              className="text-foreground font-medium rounded-xl px-5 py-2 hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200"
             >
               {link.label}
             </Button>

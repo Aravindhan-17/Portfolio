@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 const contactSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }).min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().min(1, { message: "Email is required" }).email({ message: "Please enter a valid email address" }),
+  email: z.email({ message: "Please enter a valid email address" }),
   message: z.string().min(1, { message: "Message is required" }).min(10, { message: "Message must be at least 10 characters" }),
 });
 
@@ -25,7 +25,7 @@ export function ContactSection() {
     const result = contactSchema.safeParse(formData);
     
     if (!result.success) {
-      const fieldErrors = result.error.flatten().fieldErrors;
+      const fieldErrors = z.flattenError(result.error).fieldErrors;
       setErrors({
         name: fieldErrors.name?.[0] || "",
         email: fieldErrors.email?.[0] || "",
@@ -48,6 +48,9 @@ export function ContactSection() {
       <div className="max-w-[1400px] mx-auto">
         {/* Contact Card Container */}
         <div className="relative w-full rounded-3xl overflow-hidden border border-black/5 dark:border-white/10 shadow-sm bg-background">
+          
+          {/* SVG Background Layer */}
+          <div className="absolute inset-0 bg-[url('/images/contact-bg.svg')] bg-cover sm:bg-contain md:bg-cover bg-center bg-no-repeat opacity-15 pointer-events-none z-0" />
           
           {/* Glow Effect Background */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-0">
@@ -90,7 +93,7 @@ export function ContactSection() {
                       if (errors.name) setErrors({ ...errors, name: "" });
                     }}
                     placeholder="Your Name"
-                    className={`w-full bg-background/50 dark:bg-background/50 border ${errors.name ? 'border-red-500 focus-visible:ring-red-500' : 'border-border/60 dark:border-white/10'} rounded-xl px-4 py-2.5 h-auto text-[15px] focus-visible:ring-1 focus-visible:ring-black dark:focus-visible:ring-white transition-colors placeholder:text-muted-foreground/60`}
+                    className={`w-full bg-background/50 dark:bg-background/50 border ${errors.name ? 'border-red-500 focus-visible:ring-red-500' : 'border-black/15 dark:border-white/10'} rounded-xl px-4 py-2.5 h-auto text-[15px] focus-visible:ring-1 focus-visible:ring-black dark:focus-visible:ring-white transition-colors placeholder:text-muted-foreground/60`}
                   />
                   {errors.name && <span className="text-xs text-red-500 mt-0.5">{errors.name}</span>}
                 </div>
@@ -108,7 +111,7 @@ export function ContactSection() {
                       if (errors.email) setErrors({ ...errors, email: "" });
                     }}
                     placeholder="contact@example.com"
-                    className={`w-full bg-background/50 dark:bg-background/50 border ${errors.email ? 'border-red-500 focus-visible:ring-red-500' : 'border-border/60 dark:border-white/10'} rounded-xl px-4 py-2.5 h-auto text-[15px] focus-visible:ring-1 focus-visible:ring-black dark:focus-visible:ring-white transition-colors placeholder:text-muted-foreground/60`}
+                    className={`w-full bg-background/50 dark:bg-background/50 border ${errors.email ? 'border-red-500 focus-visible:ring-red-500' : 'border-black/15 dark:border-white/10'} rounded-xl px-4 py-2.5 h-auto text-[15px] focus-visible:ring-1 focus-visible:ring-black dark:focus-visible:ring-white transition-colors placeholder:text-muted-foreground/60`}
                   />
                   {errors.email && <span className="text-xs text-red-500 mt-0.5">{errors.email}</span>}
                 </div>
@@ -126,7 +129,7 @@ export function ContactSection() {
                     }}
                     placeholder="Your message here..."
                     rows={3}
-                    className={`w-full bg-background/50 dark:bg-background/50 border ${errors.message ? 'border-red-500 focus-visible:ring-red-500' : 'border-border/60 dark:border-white/10'} rounded-xl px-4 py-3 text-[15px] focus-visible:ring-1 focus-visible:ring-black dark:focus-visible:ring-white transition-colors placeholder:text-muted-foreground/60 resize-none`}
+                    className={`w-full bg-background/50 dark:bg-background/50 border ${errors.message ? 'border-red-500 focus-visible:ring-red-500' : 'border-black/15 dark:border-white/10'} rounded-xl px-4 py-3 text-[15px] focus-visible:ring-1 focus-visible:ring-black dark:focus-visible:ring-white transition-colors placeholder:text-muted-foreground/60 resize-none`}
                   />
                   {errors.message && <span className="text-xs text-red-500 mt-0.5">{errors.message}</span>}
                 </div>
