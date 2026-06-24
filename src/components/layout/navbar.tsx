@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,13 @@ import { Menu, X } from "lucide-react";
 export function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -30,7 +37,13 @@ export function Navbar() {
   };
 
   return (
-    <header className="absolute top-0 z-50 w-full bg-transparent">
+    <header
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container relative flex h-16 sm:h-20 max-w-4xl mx-auto items-center px-4 sm:px-6 md:px-8">
         {/* Left side Logo */}
         <div className="flex-1">
