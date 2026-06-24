@@ -51,7 +51,7 @@ const cards = [
 export function SkillsSection() {
   return (
     <section id="skills" className="relative w-full py-20 px-6 sm:px-10 z-10">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
             Building Digital Experiences
@@ -67,7 +67,7 @@ export function SkillsSection() {
           {cards.map(({ icon: Icon, title, description, items }) => (
             <div
               key={title}
-              className="flex flex-col p-6 rounded-2xl border border-border/50 dark:border-white/10 bg-background/50 dark:bg-[#0a0a0a] backdrop-blur-sm transition-colors hover:bg-accent/10 dark:hover:bg-white/[0.02]"
+              className="flex flex-col p-6 rounded-2xl border border-border dark:border-white/20 bg-background/50 dark:bg-[#0a0a0a] backdrop-blur-sm transition-colors hover:bg-accent/10 dark:hover:bg-white/[0.02]"
             >
               <div className="flex items-center gap-3 mb-5">
                 <div className="text-foreground dark:text-[#c084fc]">
@@ -99,7 +99,7 @@ export function SkillsSection() {
           {cards.map(({ icon: Icon, title, description, items }) => (
             <div
               key={title}
-              className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl border border-border/50 dark:border-white/10 bg-background/50 dark:bg-[#0a0a0a] backdrop-blur-sm transition-colors hover:bg-accent/10 dark:hover:bg-white/[0.02]"
+              className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl border border-border dark:border-white/20 bg-background/50 dark:bg-[#0a0a0a] backdrop-blur-sm transition-colors hover:bg-accent/10 dark:hover:bg-white/[0.02]"
             >
               {/* Left: icon + title + description */}
               <div className="flex-1 min-w-0">

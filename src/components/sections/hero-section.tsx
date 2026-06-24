@@ -11,12 +11,29 @@ export function HeroSection() {
   const router = useRouter();
 
   return (
-    <section className="relative flex flex-col items-center justify-center px-6 sm:px-10 pt-32 sm:pt-40 md:pt-44 pb-16 z-10 min-h-[90vh]">
+    <section className="relative flex flex-col items-center justify-center px-6 sm:px-10 pt-32 sm:pt-40 md:pt-44 pb-16 z-10 min-h-screen">
+      {/* Bottom Fade Grid Background */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.4] dark:opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+            linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)
+          `,
+          backgroundSize: "30px 30px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 100%, #000 60%, transparent 100%)",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 100%, #000 60%, transparent 100%)",
+        }}
+      />
+
+
       {/* Glow Effect Background */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-0">
-        <div className="absolute h-[300px] w-[400px] bg-purple-500/30 dark:bg-purple-600/20 blur-[100px] rounded-full" />
-        <div className="absolute h-[250px] w-[350px] bg-blue-400/40 dark:bg-blue-600/20 blur-[100px] rounded-full translate-x-1/4 translate-y-1/4" />
-        <div className="absolute h-[250px] w-[400px] bg-rose-400/40 dark:bg-pink-600/20 blur-[100px] rounded-full -translate-x-1/4 -translate-y-1/4" />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-0 translate-y-32">
+        <div className="absolute h-[400px] w-[600px] bg-purple-600/40 dark:bg-purple-600/30 blur-[140px] rounded-full" />
+        <div className="absolute h-[350px] w-[500px] bg-blue-500/40 dark:bg-blue-600/30 blur-[140px] rounded-full translate-x-1/3 translate-y-1/3" />
+        <div className="absolute h-[350px] w-[500px] bg-orange-500/40 dark:bg-orange-600/30 blur-[140px] rounded-full -translate-x-1/3 -translate-y-1/3" />
       </div>
 
       <div className="z-10 w-full max-w-3xl flex flex-col items-start">

@@ -2,6 +2,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { SkillsSection } from "@/components/sections/skills-section";
+import { ContactSection } from "@/components/sections/contact-section";
+import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
   return (
@@ -15,7 +17,10 @@ export default function Home() {
         <HeroSection />
         <ExperienceSection />
         <SkillsSection />
+        <ContactSection />
       </main>
+
+      <Footer />
     </div>
   );
 }
