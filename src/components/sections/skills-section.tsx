@@ -1,6 +1,6 @@
 "use client";
 
-import { Code2, Layers, FlaskConical, LayoutGrid } from "lucide-react";
+import { Code2, Layers, GitBranch, LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
@@ -34,17 +34,17 @@ const cards = [
     ],
   },
   {
-    icon: FlaskConical,
-    title: "Testing & Optimization",
+    icon: GitBranch,
+    title: "DevOps & CI/CD",
     description:
-      "I improve application quality, performance, and reliability through testing and production-ready practices.",
+      "I automate development workflows, ensure code quality, and manage seamless production deployments.",
     items: [
-      "Unit Testing",
-      "Integration Testing",
-      "End-to-End Testing",
-      "Vitest, Jest & Playwright",
+      "Continuous Integration (CI)",
+      "Continuous Deployment (CD)",
+      "GitHub Actions Pipelines",
+      "Vercel Automation",
+      "Testing & Quality Assurance",
       "Performance Optimization",
-      "Bug Fixing & Debugging",
     ],
   },
 ];
