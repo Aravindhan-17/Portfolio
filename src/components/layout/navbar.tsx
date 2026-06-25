@@ -40,23 +40,13 @@ export function Navbar() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm"
+          ? "bg-background/80 backdrop-blur-md border-b border-black/10 dark:border-white/10 shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="container relative flex h-16 sm:h-20 max-w-4xl mx-auto items-center px-4 sm:px-6 md:px-8">
-        {/* Left side Logo */}
-        <div className="flex-1">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-lg sm:text-xl font-bold tracking-tight text-foreground"
-          >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background text-sm font-black">
-              A
-            </span>
-            Aravindhan.dev
-          </Link>
-        </div>
+        {/* Empty left side to keep center nav perfectly centered */}
+        <div className="flex-1 hidden md:block" />
 
         {/* Centered Navigation — desktop only */}
         <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-6">

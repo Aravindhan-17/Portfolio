@@ -2,6 +2,7 @@
 
 import { Code2, Layers, FlaskConical, LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const cards = [
   {
@@ -49,6 +50,8 @@ const cards = [
 ];
 
 export function SkillsSection() {
+  const router = useRouter();
+
   return (
     <section id="skills" className="relative w-full py-20 px-6 sm:px-10 z-10">
       <div className="max-w-[1400px] mx-auto">
@@ -134,7 +137,8 @@ export function SkillsSection() {
         <div className="flex justify-start sm:justify-end mt-2">
           <Button
             variant="outline"
-            className="rounded-md h-11 px-5 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[14px] transition-all shadow-sm"
+            onClick={() => router.push("/projects")}
+            className="rounded-md h-11 px-5 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[14px] transition-all shadow-sm cursor-pointer"
           >
             <LayoutGrid className="mr-2 h-4 w-4 text-foreground/70 dark:text-muted-foreground" />
             View My Projects

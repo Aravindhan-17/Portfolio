@@ -6,7 +6,7 @@ import { Mail } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-border/40 py-10 px-6 sm:px-10 mt-10">
+    <footer className="w-full border-t border-black/10 dark:border-white/10 py-10 px-6 sm:px-10 mt-10">
       <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
         
         {/* Left Side */}
@@ -27,13 +27,13 @@ export function Footer() {
           </p>
           
           <div className="flex items-center gap-4 mt-2">
-            <Link href="#" className="text-foreground/60 hover:text-foreground transition-colors">
+            <Link href={process.env.NEXT_PUBLIC_GITHUB_URL || "#"} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-foreground transition-colors">
               <FaGithub className="w-5 h-5" />
             </Link>
-            <Link href="#" className="text-foreground/60 hover:text-foreground transition-colors">
+            <Link href="/#contact" className="text-foreground/60 hover:text-foreground transition-colors">
               <Mail className="w-5 h-5" />
             </Link>
-            <Link href="#" className="text-foreground/60 hover:text-foreground transition-colors">
+            <Link href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "#"} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-foreground transition-colors">
               <FaLinkedin className="w-5 h-5" />
             </Link>
           </div>

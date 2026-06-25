@@ -6,6 +6,7 @@ import { useState, type SubmitEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const contactSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }).min(2, { message: "Name must be at least 2 characters" }),
@@ -18,7 +19,7 @@ export function ContactSection() {
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({ name: "", email: "", message: "" });
     
@@ -35,12 +36,37 @@ export function ContactSection() {
     }
 
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success("Message sent successfully! I'll be in touch soon.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try again.");
+        console.error(result);
+      }
+    } catch (error) {
+      toast.error("Network error. Please try again later.");
+      console.error(error);
+    } finally {
       setIsSubmitting(false);
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    }, 1000);
+    }
   };
 
   return (
@@ -141,7 +167,7 @@ export function ContactSection() {
                     variant="default" 
                     className="rounded-xl h-11 px-8 bg-foreground text-background hover:bg-foreground/90 font-semibold text-[15px] transition-all shadow-md w-full sm:w-auto"
                   >
-                    {isSubmitting ? "Sending..." : "Send"}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </div>
 

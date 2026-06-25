@@ -136,13 +136,17 @@ export function HeroSection() {
             />
             <div className="flex items-center gap-5">
               <Link
-                href="#"
+                href={process.env.NEXT_PUBLIC_GITHUB_URL || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground/60 dark:text-muted-foreground hover:text-foreground dark:hover:text-foreground transition-colors"
               >
                 <FaGithub className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href={process.env.NEXT_PUBLIC_LINKEDIN_URL || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground/60 dark:text-muted-foreground hover:text-foreground dark:hover:text-foreground transition-colors"
               >
                 <FaLinkedin className="h-5 w-5" />

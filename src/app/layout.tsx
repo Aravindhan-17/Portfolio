@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,6 +18,18 @@ export const metadata: Metadata = {
     template: "%s | Aravindhan",
   },
   description: "Portfolio of Aravindhan, a Software Developer specializing in modern web applications, frontend experiences, and backend workflows.",
+  openGraph: {
+    title: "Aravindhan | Software Developer",
+    description: "Portfolio of Aravindhan, a Software Developer specializing in modern web applications, frontend experiences, and backend workflows.",
+    url: "https://aravindhan.dev", // Replace with your actual domain when deploying
+    siteName: "Aravindhan Portfolio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aravindhan | Software Developer",
+    description: "Portfolio of Aravindhan, a Software Developer specializing in modern web applications, frontend experiences, and backend workflows.",
+  },
 };
 
 export default function RootLayout({
@@ -47,6 +61,8 @@ export default function RootLayout({
             
             <Footer />
           </div>
+          <Toaster />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
