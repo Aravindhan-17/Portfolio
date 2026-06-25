@@ -95,10 +95,10 @@ export function ContactSection() {
             <div className="flex flex-col gap-3">
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-[#ae85ef] dark:to-[#c084fc] leading-[1.2]">
                 Bringing your ideas to life. <br />
-                Let's turn your vision into reality
+                Let&apos;s turn your vision into reality
               </h2>
               <p className="text-foreground/70 dark:text-white/90 text-[15px] sm:text-base font-medium max-w-md">
-                Have a project in mind or just want to chat? Let's connect!
+                Have a project in mind or just want to chat? Let&apos;s connect!
               </p>
             </div>
 

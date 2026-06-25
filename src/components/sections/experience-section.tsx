@@ -29,7 +29,7 @@ export function ExperienceSection() {
             Professional Journey
           </h2>
           <p className="text-foreground/70 dark:text-muted-foreground max-w-2xl text-[15px] sm:text-base">
-            My career timeline showing roles, key achievements, and the technical ecosystems I've worked in.
+            My career timeline showing roles, key achievements, and the technical ecosystems I&apos;ve worked in.
           </p>
         </div>
 

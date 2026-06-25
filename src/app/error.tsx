@@ -33,7 +33,7 @@ export default function Error({
         </h2>
         
         <p className="text-foreground/70 dark:text-muted-foreground max-w-[500px] mb-8 text-lg leading-relaxed">
-          An unexpected error has occurred. We've logged the issue, but you can try refreshing the page.
+          An unexpected error has occurred. We&apos;ve logged the issue, but you can try refreshing the page.
         </p>
         
         <Button 

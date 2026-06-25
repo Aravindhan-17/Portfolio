@@ -132,34 +132,34 @@ export default function ProjectDetailPage({
                 Project Overview
               </h2>
               <p className="text-muted-foreground leading-relaxed text-[15px] sm:text-base">
-                {/* @ts-ignore */}
+                
                 {project.caseStudy?.overview || project.description}
               </p>
             </section>
 
             {/* My Role */}
-            {/* @ts-ignore */}
+            
             {project.caseStudy?.role && (
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">
                   My Role
                 </h2>
                 <p className="text-muted-foreground leading-relaxed text-[15px] sm:text-base">
-                  {/* @ts-ignore */}
+                  
                   {project.caseStudy.role}
                 </p>
               </section>
             )}
 
             {/* Key Features */}
-            {/* @ts-ignore */}
+            
             {project.features && project.features.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">
                   Key Features
                 </h2>
                 <ul className="space-y-3 text-muted-foreground text-[15px] sm:text-base">
-                  {/* @ts-ignore */}
+                  
                   {project.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-purple-500 shrink-0 mt-0.5" />
@@ -171,14 +171,14 @@ export default function ProjectDetailPage({
             )}
 
             {/* Technical Highlights */}
-            {/* @ts-ignore */}
+            
             {project.caseStudy?.technicalHighlights && (
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">
                   Technical Highlights
                 </h2>
                 <ul className="space-y-3 text-muted-foreground text-[15px] sm:text-base">
-                  {/* @ts-ignore */}
+                  
                   {project.caseStudy.technicalHighlights.map((highlight, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-purple-500 shrink-0 mt-0.5" />
@@ -190,14 +190,14 @@ export default function ProjectDetailPage({
             )}
 
             {/* Challenge & Solution */}
-            {/* @ts-ignore */}
+            
             {project.caseStudy?.challengeSolution && (
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">
                   Challenge & Solution
                 </h2>
                 <p className="text-muted-foreground leading-relaxed text-[15px] sm:text-base whitespace-pre-line">
-                  {/* @ts-ignore */}
+                  
                   {project.caseStudy.challengeSolution}
                 </p>
               </section>
@@ -224,14 +224,14 @@ export default function ProjectDetailPage({
             </section>
 
             {/* Confidentiality Note */}
-            {/* @ts-ignore */}
+            
             {project.caseStudy?.confidentialityNote && (
               <section className="bg-muted/50 p-5 rounded-xl border border-border/50">
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   Confidentiality Note
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">
-                  {/* @ts-ignore */}
+                  
                   {project.caseStudy.confidentialityNote}
                 </p>
               </section>
@@ -239,13 +239,13 @@ export default function ProjectDetailPage({
 
             {/* Action Buttons / Badges */}
             <section className="pt-4 flex gap-4">
-              {/* @ts-ignore */}
+              
               {project.isPrivate && (
                 <div className="inline-flex items-center justify-center rounded-full bg-muted border border-border/60 text-muted-foreground text-sm font-medium h-11 px-6 gap-2 cursor-not-allowed">
                   Private Project
                 </div>
               )}
-              {/* @ts-ignore */}
+              
               {!project.isPrivate && project.liveUrl !== "#" && (
                 <Link
                   href={project.liveUrl}

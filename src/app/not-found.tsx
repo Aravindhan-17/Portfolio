@@ -22,7 +22,7 @@ export default function NotFound() {
           Page not found
         </h2>
         <p className="text-foreground/70 dark:text-muted-foreground max-w-[500px] mb-8 text-lg leading-relaxed">
-          The page you are looking for doesn't exist or has been moved. Let's get you back on track.
+          The page you are looking for doesn&apos;t exist or has been moved. Let&apos;s get you back on track.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <Button onClick={() => router.push("/")} variant="default" className="rounded-xl h-12 px-8 text-[15px] font-semibold w-full sm:w-auto shadow-md">
