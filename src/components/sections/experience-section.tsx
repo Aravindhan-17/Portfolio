@@ -17,7 +17,7 @@ export function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="relative w-full py-20 px-6 sm:px-10 z-10">
+    <section id="experience" className="relative w-full py-20 px-6 sm:px-10 z-10 overflow-hidden">
       {/* Background radial glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-0">
         <div className="absolute h-[250px] w-[350px] bg-purple-500/10 dark:bg-purple-600/5 blur-[90px] rounded-full translate-x-1/3" />

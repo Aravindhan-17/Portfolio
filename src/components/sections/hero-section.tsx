@@ -12,7 +12,7 @@ export function HeroSection() {
   const router = useRouter();
 
   return (
-    <section className="relative flex flex-col items-center justify-center px-6 sm:px-10 pt-32 sm:pt-40 md:pt-44 pb-16 z-10 min-h-screen">
+    <section className="relative flex flex-col items-center justify-center px-6 sm:px-10 pt-32 sm:pt-40 md:pt-44 pb-16 z-10 min-h-screen overflow-hidden">
       {/* Bottom Fade Grid Background */}
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-[0.4] dark:opacity-[0.03]"
@@ -54,19 +54,21 @@ export function HeroSection() {
 
           {/* Headings */}
           <div className="flex flex-col items-start justify-center gap-1 text-left w-full overflow-visible">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] whitespace-nowrap">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
               Hey, I&apos;m{" "}
-              <span className="text-foreground dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:from-[#ae85ef] dark:to-[#2e1065]">
-                Aravindhan
-              </span>
-              <span
-                className="inline-block ml-2 lg:-translate-y-1"
-                style={{ WebkitTextFillColor: "initial", color: "initial" }}
-              >
-                ✨
+              <span className="whitespace-nowrap">
+                <span className="text-foreground dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:from-[#ae85ef] dark:to-[#2e1065]">
+                  Aravindhan
+                </span>
+                <span
+                  className="inline-block ml-2 lg:-translate-y-1"
+                  style={{ WebkitTextFillColor: "initial", color: "initial" }}
+                >
+                  ✨
+                </span>
               </span>
             </h1>
-            <h2 className="text-[2rem] sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] whitespace-nowrap">
+            <h2 className="text-[2rem] sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] sm:whitespace-nowrap">
               A{" "}
               <span className="text-foreground dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:from-[#ae85ef] dark:to-[#2e1065]">
                 Software Developer
