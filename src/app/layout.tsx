@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/opengraph-image.png",
+        url: "/images/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Aravindhan - Software Developer",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aravindhan | Software Developer",
     description: "Portfolio of Aravindhan, a Software Developer specializing in modern web applications, frontend experiences, and backend workflows.",
-    images: ["/images/opengraph-image.png"],
+    images: ["/images/opengraph-image.jpg"],
   },
 };
 
