@@ -1,11 +1,15 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-
 import { projects } from "@/constants/projects";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "A selection of my recent projects, including secure platforms, dashboards, and scalable web applications.",
+};
+
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   return (
     <Link
