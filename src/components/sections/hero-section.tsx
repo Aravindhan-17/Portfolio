@@ -43,9 +43,10 @@ export function HeroSection() {
           {/* Profile Avatar */}
           <div className="relative h-24 w-24 md:h-[130px] md:w-[130px] rounded-full border-[3px] border-background overflow-hidden bg-muted shadow-xl flex-shrink-0">
             <Image
-              src="/images/avatar.webp"
+              src="/images/avatar.png"
               alt="Aravindhan Profile"
               fill
+              sizes="(max-width: 768px) 96px, 130px"
               className="object-cover"
               priority
             />
