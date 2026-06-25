@@ -13,6 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-one-ruddy-94.vercel.app"),
   title: {
     default: "Aravindhan | Software Developer",
     template: "%s | Aravindhan",
@@ -21,14 +22,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aravindhan | Software Developer",
     description: "Portfolio of Aravindhan, a Software Developer specializing in modern web applications, frontend experiences, and backend workflows.",
-    url: "https://aravindhan.dev", // Replace with your actual domain when deploying
+    url: "https://portfolio-one-ruddy-94.vercel.app",
     siteName: "Aravindhan Portfolio",
     type: "website",
+    images: [
+      {
+        url: "/images/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Aravindhan - Software Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Aravindhan | Software Developer",
     description: "Portfolio of Aravindhan, a Software Developer specializing in modern web applications, frontend experiences, and backend workflows.",
+    images: ["/images/opengraph-image.png"],
   },
 };
 
