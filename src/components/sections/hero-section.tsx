@@ -99,14 +99,15 @@ export function HeroSection() {
         <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-            <Button
-              variant="default"
-              className="w-full sm:w-auto rounded-md h-11 px-6 bg-foreground text-background hover:bg-foreground/90 font-semibold text-[15px] transition-all shadow-md"
-              onClick={() => window.open("/resume.pdf", "_blank")}
-            >
-              <Download className="mr-2 h-[18px] w-[18px]" strokeWidth={2.5} />
-              Download Resume
-            </Button>
+            <a href="/resume.pdf" download="Aravindhan_Resume.pdf" className="w-full sm:w-auto">
+              <Button
+                variant="default"
+                className="w-full sm:w-auto rounded-md h-11 px-6 bg-foreground text-background hover:bg-foreground/90 font-semibold text-[15px] transition-all shadow-md"
+              >
+                <Download className="mr-2 h-[18px] w-[18px]" strokeWidth={2.5} />
+                Download Resume
+              </Button>
+            </a>
             <Button
               variant="outline"
               className="w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm"
