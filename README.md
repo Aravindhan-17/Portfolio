@@ -54,6 +54,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This project is optimized for deployment on [Vercel](https://vercel.com). Simply push your code to a GitHub repository, connect it to Vercel, and ensure you add your Environment Variables in the Vercel Dashboard project settings.
 
+## 🛠️ CI/CD Pipeline
+
+This repository includes a robust Continuous Integration (CI) pipeline powered by GitHub Actions. Every push and pull request to the `main` branch automatically triggers:
+- **Environment Setup:** Node.js 24 clean installation
+- **Code Quality Checks:** Strict linting using ESLint (`npm run lint`)
+- **Build Verification:** Next.js production build check (`npm run build`)
+
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
