@@ -35,8 +35,6 @@ export const projects = [
     image: "/images/task-flow/task-flow-thumbnail.png",
     sliderImages: [
       "/images/task-flow/task-flow-thumbnail.png",
-      "/images/task-flow/task-flow-thumbnail.png",
-      "/images/task-flow/task-flow-thumbnail.png",
     ],
     tags: [
       "React 19",
@@ -111,8 +109,6 @@ export const projects = [
     image: "/images/cloude-secure/cloud-secure-thumbnail.png",
     sliderImages: [
       "/images/cloude-secure/cloud-secure-thumbnail.png",
-      "/images/cloude-secure/cloud-secure-thumbnail.png",
-      "/images/cloude-secure/cloud-secure-thumbnail.png",
     ],
     tags: [
       "React 19",
@@ -184,8 +180,6 @@ export const projects = [
     },
     image: "/images/cleanerz/cleanerz-thumbnail.png",
     sliderImages: [
-      "/images/cleanerz/cleanerz-thumbnail.png",
-      "/images/cleanerz/cleanerz-thumbnail.png",
       "/images/cleanerz/cleanerz-thumbnail.png",
     ],
     tags: [
