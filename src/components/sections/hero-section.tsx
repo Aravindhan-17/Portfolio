@@ -31,10 +31,10 @@ export function HeroSection() {
 
 
       {/* Glow Effect Background */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-0 translate-y-32">
-        <div className="absolute h-[400px] w-[600px] bg-purple-600/40 dark:bg-purple-600/30 blur-[140px] rounded-full" />
-        <div className="absolute h-[350px] w-[500px] bg-blue-500/40 dark:bg-blue-600/30 blur-[140px] rounded-full translate-x-1/3 translate-y-1/3" />
-        <div className="absolute h-[350px] w-[500px] bg-orange-500/40 dark:bg-orange-600/30 blur-[140px] rounded-full -translate-x-1/3 -translate-y-1/3" />
+      <div className="pointer-events-none absolute bottom-[10%] left-1/2 -translate-x-1/2 z-0 flex items-center justify-center w-full">
+        <div className="absolute h-[300px] w-[500px] md:h-[400px] md:w-[700px] bg-purple-600/40 dark:bg-purple-600/30 blur-[120px] rounded-full" />
+        <div className="absolute h-[250px] w-[400px] md:h-[300px] md:w-[500px] bg-blue-500/40 dark:bg-blue-600/30 blur-[120px] rounded-full translate-x-1/4" />
+        <div className="absolute h-[250px] w-[400px] md:h-[300px] md:w-[500px] bg-orange-500/40 dark:bg-orange-600/30 blur-[120px] rounded-full -translate-x-1/4" />
       </div>
 
       <div className="z-10 w-full max-w-3xl flex flex-col items-start">
