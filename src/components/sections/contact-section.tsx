@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import { useState, type SubmitEvent } from "react";
 import { Button } from "@/components/ui/button";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -16,12 +17,13 @@ const contactSchema = z.object({
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState({ name: "", email: "", message: "", captcha: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrors({ name: "", email: "", message: "" });
+    setErrors({ name: "", email: "", message: "", captcha: "" });
     
     const result = contactSchema.safeParse(formData);
     
@@ -31,7 +33,13 @@ export function ContactSection() {
         name: fieldErrors.name?.[0] || "",
         email: fieldErrors.email?.[0] || "",
         message: fieldErrors.message?.[0] || "",
+        captcha: errors.captcha,
       });
+      return;
+    }
+
+    if (!captchaToken) {
+      setErrors({ ...errors, captcha: "Please complete the captcha" });
       return;
     }
 
@@ -49,6 +57,7 @@ export function ContactSection() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          "h-captcha-response": captchaToken,
         }),
       });
 
@@ -57,6 +66,7 @@ export function ContactSection() {
       if (result.success) {
         toast.success("Message sent successfully! I'll be in touch soon.");
         setFormData({ name: "", email: "", message: "" });
+        setCaptchaToken(null);
       } else {
         toast.error("Something went wrong. Please try again.");
         console.error(result);
@@ -158,6 +168,23 @@ export function ContactSection() {
                     className={`w-full bg-background/50 dark:bg-background/50 border ${errors.message ? 'border-red-500 focus-visible:ring-red-500' : 'border-black/15 dark:border-white/10'} rounded-xl px-4 py-3 text-[15px] focus-visible:ring-1 focus-visible:ring-black dark:focus-visible:ring-white transition-colors placeholder:text-muted-foreground/60 resize-none`}
                   />
                   {errors.message && <span className="text-xs text-red-500 mt-0.5">{errors.message}</span>}
+                </div>
+
+                {/* hCaptcha Verification */}
+                <div className="flex flex-col gap-1.5 w-full mt-2">
+                  <div className="flex justify-center w-full overflow-hidden">
+                    <div className="scale-[0.85] sm:scale-100 origin-center transition-transform">
+                      <HCaptcha
+                        sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                        onVerify={(token) => {
+                          setCaptchaToken(token);
+                          setErrors({ ...errors, captcha: "" });
+                        }}
+                        onExpire={() => setCaptchaToken(null)}
+                      />
+                    </div>
+                  </div>
+                  {errors.captcha && <span className="text-xs text-red-500 mt-0.5 text-center">{errors.captcha}</span>}
                 </div>
 
                 <div className="flex justify-end mt-2">
