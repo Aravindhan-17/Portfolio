@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 
-import { useState, type SubmitEvent } from "react";
+import { useState, useRef, type SubmitEvent } from "react";
 import { Button } from "@/components/ui/button";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Input } from "@/components/ui/input";
@@ -20,6 +20,7 @@ export function ContactSection() {
   const [errors, setErrors] = useState({ name: "", email: "", message: "", captcha: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const captchaRef = useRef<HCaptcha>(null);
 
   const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -67,6 +68,7 @@ export function ContactSection() {
         toast.success("Message sent successfully! I'll be in touch soon.");
         setFormData({ name: "", email: "", message: "" });
         setCaptchaToken(null);
+        captchaRef.current?.resetCaptcha();
       } else {
         toast.error("Something went wrong. Please try again.");
         console.error(result);
@@ -175,6 +177,7 @@ export function ContactSection() {
                   <div className="flex justify-center w-full overflow-hidden">
                     <div className="scale-[0.85] sm:scale-100 origin-center transition-transform">
                       <HCaptcha
+                        ref={captchaRef}
                         sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
                         onVerify={(token) => {
                           setCaptchaToken(token);
