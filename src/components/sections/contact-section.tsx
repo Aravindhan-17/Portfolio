@@ -16,17 +16,24 @@ const contactSchema = z.object({
 });
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({ name: "", email: "", message: "", captcha: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const captchaRef = useRef<HCaptcha>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({ name: "", email: "", message: "", captcha: "" });
     
-    const result = contactSchema.safeParse(formData);
+    const formData = new FormData(e.currentTarget);
+    const formValues = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    const result = contactSchema.safeParse(formValues);
     
     if (!result.success) {
       const fieldErrors = z.flattenError(result.error).fieldErrors;
@@ -55,9 +62,9 @@ export function ContactSection() {
         },
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+          name: formValues.name,
+          email: formValues.email,
+          message: formValues.message,
           "h-captcha-response": captchaToken,
         }),
       });
@@ -66,7 +73,7 @@ export function ContactSection() {
 
       if (result.success) {
         toast.success("Message sent successfully! I'll be in touch soon.");
-        setFormData({ name: "", email: "", message: "" });
+        formRef.current?.reset();
         setCaptchaToken(null);
         captchaRef.current?.resetCaptcha();
       } else {
@@ -116,7 +123,7 @@ export function ContactSection() {
 
             {/* Right Side: Floating Form */}
             <div className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
-              <form onSubmit={handleSubmit} className="bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.15)] dark:shadow-none rounded-2xl p-5 sm:p-6 flex flex-col gap-4">
+              <form ref={formRef} onSubmit={handleSubmit} className="bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.15)] dark:shadow-none rounded-2xl p-5 sm:p-6 flex flex-col gap-4">
                 
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="name" className="text-[14px] font-semibold text-foreground/90">
@@ -125,9 +132,8 @@ export function ContactSection() {
                   <Input
                     type="text"
                     id="name"
-                    value={formData.name}
+                    name="name"
                     onChange={(e) => {
-                      setFormData({ ...formData, name: e.target.value });
                       if (errors.name) setErrors({ ...errors, name: "" });
                     }}
                     placeholder="Your Name"
@@ -143,9 +149,8 @@ export function ContactSection() {
                   <Input
                     type="email"
                     id="email"
-                    value={formData.email}
+                    name="email"
                     onChange={(e) => {
-                      setFormData({ ...formData, email: e.target.value });
                       if (errors.email) setErrors({ ...errors, email: "" });
                     }}
                     placeholder="contact@example.com"
@@ -160,9 +165,8 @@ export function ContactSection() {
                   </label>
                   <Textarea
                     id="message"
-                    value={formData.message}
+                    name="message"
                     onChange={(e) => {
-                      setFormData({ ...formData, message: e.target.value });
                       if (errors.message) setErrors({ ...errors, message: "" });
                     }}
                     placeholder="Your message here..."
