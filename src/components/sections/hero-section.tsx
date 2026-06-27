@@ -1,15 +1,11 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { AtSign, Library, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export function HeroSection() {
-  const router = useRouter();
 
   return (
     <section className="relative flex flex-col items-center justify-center px-6 sm:px-10 pt-32 sm:pt-40 md:pt-44 pb-16 z-10 min-h-screen overflow-hidden">
@@ -110,26 +106,20 @@ export function HeroSection() {
                 Download Resume
               </Button>
             </a>
-            <Button
-              variant="outline"
-              className="w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm"
-              onClick={() => {
-                const element = document.getElementById("contact");
-                if (element) element.scrollIntoView({ behavior: "smooth" });
-                else router.push("/#contact");
-              }}
+            <Link
+              href="#contact"
+              className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm" })}
             >
               <AtSign className="mr-2 h-[18px] w-[18px]" strokeWidth={2.5} />
               Contact Me
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm"
-              onClick={() => router.push("/projects")}
+            </Link>
+            <Link
+              href="/projects"
+              className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm" })}
             >
               <Library className="mr-2 h-[18px] w-[18px]" strokeWidth={2.5} />
               View Projects
-            </Button>
+            </Link>
           </div>
 
           {/* Separator + Social Icons */}

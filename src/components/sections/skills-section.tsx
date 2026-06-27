@@ -1,8 +1,6 @@
-"use client";
-
 import { Code2, Layers, GitBranch, LayoutGrid } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { Button, buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 const cards = [
   {
@@ -50,7 +48,6 @@ const cards = [
 ];
 
 export function SkillsSection() {
-  const router = useRouter();
 
   return (
     <section id="skills" className="relative w-full py-20 px-6 sm:px-10 z-10">
@@ -135,14 +132,13 @@ export function SkillsSection() {
         </div>
 
         <div className="flex justify-start sm:justify-end mt-2">
-          <Button
-            variant="outline"
-            onClick={() => router.push("/projects")}
-            className="rounded-md h-11 px-5 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[14px] transition-all shadow-sm cursor-pointer"
+          <Link
+            href="/projects"
+            className={buttonVariants({ variant: "outline", className: "rounded-md h-11 px-5 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[14px] transition-all shadow-sm cursor-pointer" })}
           >
             <LayoutGrid className="mr-2 h-4 w-4 text-foreground/70 dark:text-muted-foreground" />
             View My Projects
-          </Button>
+          </Link>
         </div>
       </div>
     </section>

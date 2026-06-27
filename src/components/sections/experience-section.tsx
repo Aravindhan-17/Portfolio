@@ -1,4 +1,4 @@
-"use client";
+
 
 import { Briefcase, Calendar, MapPin, Building2 } from "lucide-react";
 
