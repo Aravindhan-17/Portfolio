@@ -1,5 +1,5 @@
 import { Code2, Layers, GitBranch, LayoutGrid } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 const cards = [
