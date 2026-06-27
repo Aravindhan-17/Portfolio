@@ -1,6 +1,7 @@
 import { Code2, Layers, GitBranch, LayoutGrid } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const cards = [
   {
@@ -134,7 +135,7 @@ export function SkillsSection() {
         <div className="flex justify-start sm:justify-end mt-2">
           <Link
             href="/projects"
-            className={buttonVariants({ variant: "outline", className: "rounded-md h-11 px-5 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[14px] transition-all shadow-sm cursor-pointer" })}
+            className={cn(buttonVariants({ variant: "outline" }), "rounded-md h-11 px-5 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[14px] transition-all shadow-sm cursor-pointer")}
           >
             <LayoutGrid className="mr-2 h-4 w-4 text-foreground/70 dark:text-muted-foreground" />
             View My Projects

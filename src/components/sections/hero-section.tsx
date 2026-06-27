@@ -4,6 +4,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { AtSign, Library, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
 
@@ -108,14 +109,14 @@ export function HeroSection() {
             </a>
             <Link
               href="#contact"
-              className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm" })}
+              className={cn(buttonVariants({ variant: "outline" }), "w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm")}
             >
               <AtSign className="mr-2 h-[18px] w-[18px]" strokeWidth={2.5} />
               Contact Me
             </Link>
             <Link
               href="/projects"
-              className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm" })}
+              className={cn(buttonVariants({ variant: "outline" }), "w-full sm:w-auto rounded-md h-11 px-6 border-border/50 dark:border-white/10 bg-background/50 dark:bg-black/50 hover:bg-accent/50 dark:hover:bg-white/5 text-foreground dark:text-white backdrop-blur-md font-medium text-[15px] transition-all shadow-sm")}
             >
               <Library className="mr-2 h-[18px] w-[18px]" strokeWidth={2.5} />
               View Projects
