@@ -133,7 +133,7 @@ export function ContactSection() {
                     type="text"
                     id="name"
                     name="name"
-                    onChange={(e) => {
+                    onChange={() => {
                       if (errors.name) setErrors({ ...errors, name: "" });
                     }}
                     placeholder="Your Name"
@@ -150,7 +150,7 @@ export function ContactSection() {
                     type="email"
                     id="email"
                     name="email"
-                    onChange={(e) => {
+                    onChange={() => {
                       if (errors.email) setErrors({ ...errors, email: "" });
                     }}
                     placeholder="contact@example.com"
@@ -166,7 +166,7 @@ export function ContactSection() {
                   <Textarea
                     id="message"
                     name="message"
-                    onChange={(e) => {
+                    onChange={() => {
                       if (errors.message) setErrors({ ...errors, message: "" });
                     }}
                     placeholder="Your message here..."
