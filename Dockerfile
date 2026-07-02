@@ -1,5 +1,9 @@
 FROM node:22.17.0-alpine AS base
 
+# Security patches for OS and global npm packages
+RUN apk upgrade --no-cache && \
+    npm install -g npm@latest
+
 # Step 0. Development image
 FROM base AS dev
 WORKDIR /app
