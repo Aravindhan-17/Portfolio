@@ -24,12 +24,12 @@ const cards = [
     description:
       "I develop complete web applications with frontend, backend, database, and secure API workflows.",
     items: [
-      "Node.js & Express.js",
-      "RESTful API Development",
+      "Node.js & Express APIs",
+      "Next.js Server Actions",
       "MongoDB & MySQL",
-      "Authentication & Authorization",
+      "Authentication & Security",
       "Role-Based Access Control",
-      "File Uploads & Validations",
+      "Zod Data Validation",
     ],
   },
   {

@@ -50,5 +50,5 @@ jobs:
           tags: |
             aravindhan1722/portfolio-app:latest
             aravindhan1722/portfolio-app:${{ github.sha }}
-          cache-from: type=registry,ref=aravindhan1722/portfolio-app:buildcache
-          cache-to: type=registry,ref=aravindhan1722/portfolio-app:buildcache,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
