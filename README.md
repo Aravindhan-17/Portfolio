@@ -50,9 +50,28 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## 🐳 Docker Support
+
+This project includes a fully optimized Docker setup utilizing Next.js standalone output and multi-stage builds.
+
+**Local Development (Live Reload)**
+To spin up a local development server with hot-reloading (Docker Compose Watch):
+```bash
+docker compose watch
+```
+
+**Production Build**
+To build and run the optimized production image locally:
+```bash
+docker compose up --build
+```
+*(The production image automatically excludes `node_modules` and uses the minimal `.next/standalone` output, drastically reducing image size).*
+
 ## 📈 Deployment
 
 This project is optimized for deployment on [Vercel](https://vercel.com). Simply push your code to a GitHub repository, connect it to Vercel, and ensure you add your Environment Variables in the Vercel Dashboard project settings.
+
+Alternatively, because the project is fully Dockerized, you can deploy it to any container platform (Render, Railway, Fly.io, or your own VPS) by pushing the Docker image.
 
 ## 🛠️ CI/CD Pipeline
 

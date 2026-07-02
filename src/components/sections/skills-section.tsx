@@ -38,12 +38,12 @@ const cards = [
     description:
       "I automate development workflows, ensure code quality, and manage seamless production deployments.",
     items: [
-      "Continuous Integration (CI)",
-      "Continuous Deployment (CD)",
-      "GitHub Actions Pipelines",
+      "Docker & Containerization",
+      "CI / CD Pipelines",
+      "GitHub Actions",
       "Vercel Automation",
       "Testing & Quality Assurance",
-      "Performance Optimization",
+      "Linux Server Management",
     ],
   },
 ];
